@@ -93,13 +93,13 @@ class PlutoBodyRowsState extends PlutoStateWithChange<PlutoBodyRows> {
       child: SingleChildScrollView(
         controller: _horizontalScroll,
         scrollDirection: Axis.horizontal,
-        physics: const ClampingScrollPhysics(),
+        physics: scrollbarConfig.horizontalScrollPhysics,
         child: CustomSingleChildLayout(
           delegate: ListResizeDelegate(stateManager, _columns),
           child: ListView.builder(
             controller: _verticalScroll,
             scrollDirection: Axis.vertical,
-            physics: const ClampingScrollPhysics(),
+            physics: scrollbarConfig.verticalScrollPhysics,
             itemCount: _rows.length,
             itemExtent: stateManager.rowTotalHeight,
             addRepaintBoundaries: false,

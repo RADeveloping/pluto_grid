@@ -674,6 +674,8 @@ class PlutoGridScrollbarConfig {
         PlutoScrollbar.defaultRadiusWhileDragging,
     this.longPressDuration,
     this.dragDevices,
+    this.horizontalScrollPhysics = const ClampingScrollPhysics(),
+    this.verticalScrollPhysics = const ClampingScrollPhysics(),
   });
 
   final bool draggableScrollbar;
@@ -714,6 +716,10 @@ class PlutoGridScrollbarConfig {
   final Duration? longPressDuration;
 
   final Set<PointerDeviceKind>? dragDevices;
+
+  final ScrollPhysics horizontalScrollPhysics;
+
+  final ScrollPhysics verticalScrollPhysics;
 
   @override
   bool operator ==(covariant Object other) {
