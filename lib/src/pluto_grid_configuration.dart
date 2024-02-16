@@ -65,6 +65,9 @@ class PlutoGridConfiguration {
   /// Customise scrollbars for desktop usage
   final PlutoGridScrollbarConfig scrollbar;
 
+  /// Customise right frozen rows scrollbars for desktop usage
+  final PlutoGridScrollbarConfig? rightFrozenScrollbar;
+
   /// Customise filter of columns
   final PlutoGridColumnFilterConfig columnFilter;
 
@@ -81,6 +84,7 @@ class PlutoGridConfiguration {
     this.shortcut = const PlutoGridShortcut(),
     this.style = const PlutoGridStyleConfig(),
     this.scrollbar = const PlutoGridScrollbarConfig(),
+    this.rightFrozenScrollbar,
     this.columnFilter = const PlutoGridColumnFilterConfig(),
     this.columnSize = const PlutoGridColumnSizeConfig(),
     this.localeText = const PlutoGridLocaleText(),
@@ -94,6 +98,7 @@ class PlutoGridConfiguration {
     this.shortcut = const PlutoGridShortcut(),
     this.style = const PlutoGridStyleConfig.dark(),
     this.scrollbar = const PlutoGridScrollbarConfig(),
+    this.rightFrozenScrollbar,
     this.columnFilter = const PlutoGridColumnFilterConfig(),
     this.columnSize = const PlutoGridColumnSizeConfig(),
     this.localeText = const PlutoGridLocaleText(),
@@ -136,6 +141,7 @@ class PlutoGridConfiguration {
     PlutoGridShortcut? shortcut,
     PlutoGridStyleConfig? style,
     PlutoGridScrollbarConfig? scrollbar,
+    PlutoGridScrollbarConfig? rightFrozenScrollbar,
     PlutoGridColumnFilterConfig? columnFilter,
     PlutoGridColumnSizeConfig? columnSize,
     PlutoGridLocaleText? localeText,
@@ -170,6 +176,7 @@ class PlutoGridConfiguration {
             shortcut == other.shortcut &&
             style == other.style &&
             scrollbar == other.scrollbar &&
+            rightFrozenScrollbar == other.rightFrozenScrollbar &&
             columnFilter == other.columnFilter &&
             columnSize == other.columnSize &&
             localeText == other.localeText;
@@ -184,6 +191,7 @@ class PlutoGridConfiguration {
         shortcut,
         style,
         scrollbar,
+        rightFrozenScrollbar,
         columnFilter,
         columnSize,
         localeText,

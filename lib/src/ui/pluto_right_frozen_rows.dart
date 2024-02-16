@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pluto_grid/pluto_grid.dart';
+import 'package:pluto_grid/src/helper/platform_helper.dart';
 
 import 'ui.dart';
 
@@ -53,7 +54,9 @@ class PlutoRightFrozenRowsState
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    final scrollbarConfig = stateManager.configuration.rightFrozenScrollbar;
+
+    var listView = ListView.builder(
       controller: _scroll,
       scrollDirection: Axis.vertical,
       physics: const ClampingScrollPhysics(),
@@ -68,6 +71,30 @@ class PlutoRightFrozenRowsState
           stateManager: stateManager,
         );
       },
+    );
+
+    if(scrollbarConfig == null){
+      return listView;
+    }
+
+    return PlutoScrollbar(
+      verticalController:
+      scrollbarConfig.draggableScrollbar ? _scroll : null,
+      isAlwaysShown: scrollbarConfig.isAlwaysShown,
+      onlyDraggingThumb: scrollbarConfig.onlyDraggingThumb,
+      enableHover: PlatformHelper.isDesktop,
+      enableScrollAfterDragEnd: scrollbarConfig.enableScrollAfterDragEnd,
+      thickness: scrollbarConfig.scrollbarThickness,
+      thicknessWhileDragging: scrollbarConfig.scrollbarThicknessWhileDragging,
+      hoverWidth: scrollbarConfig.hoverWidth,
+      mainAxisMargin: scrollbarConfig.mainAxisMargin,
+      crossAxisMargin: scrollbarConfig.crossAxisMargin,
+      scrollBarColor: scrollbarConfig.scrollBarColor,
+      scrollBarTrackColor: scrollbarConfig.scrollBarTrackColor,
+      radius: scrollbarConfig.scrollbarRadius,
+      radiusWhileDragging: scrollbarConfig.scrollbarRadiusWhileDragging,
+      longPressDuration: scrollbarConfig.longPressDuration,
+      child: listView,
     );
   }
 }
