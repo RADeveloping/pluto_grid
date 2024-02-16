@@ -188,7 +188,9 @@ class _PlutoInfinityScrollRowsState extends State<PlutoInfinityScrollRows> {
 
     widget.fetch(request).then((response) {
       if (lastRow == null) {
-        scroll.jumpTo(0);
+        if(scroll.hasClients){
+          scroll.jumpTo(0);
+        }
         stateManager.removeAllRows(notify: false);
       }
 

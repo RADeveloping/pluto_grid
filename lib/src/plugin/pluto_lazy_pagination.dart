@@ -180,7 +180,9 @@ class _PlutoLazyPaginationState extends State<PlutoLazyPagination> {
       ),
     )
         .then((data) {
-      stateManager.scroll.bodyRowsVertical!.jumpTo(0);
+          if(stateManager.scroll.bodyRowsVertical!.hasClients){
+            stateManager.scroll.bodyRowsVertical!.jumpTo(0);
+          }
 
       stateManager.refRows.clearFromOriginal();
       stateManager.insertRows(0, data.rows);
