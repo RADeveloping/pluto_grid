@@ -56,7 +56,7 @@ class PlutoLeftFrozenRowsState
     return ListView.builder(
       controller: _scroll,
       scrollDirection: Axis.vertical,
-      physics: const ClampingScrollPhysics(),
+      physics: stateManager.configuration.scrollbar.verticalScrollPhysics,
       itemCount: _rows.length,
       itemExtent: stateManager.rowTotalHeight,
       itemBuilder: (ctx, i) {
